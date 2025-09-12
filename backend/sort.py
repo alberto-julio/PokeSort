@@ -20,6 +20,58 @@ def partition(pokemon: list, left: int, right: int):
     swap(pokemon, i + 1, right)
     return i + 1
 
+
+def insertion_sort(pokemon: list):
+
+    for i in range(1, len(pokemon)):
+        key = pokemon[i]
+        j = i - 1
+
+        while j >=0 and key < pokemon[j]:
+            pokemon[j + 1] = pokemon[j]
+            j -= 1
+        pokemon[j + 1] = key
+    
+    return pokemon
+
+def bubble_sort(pokemon: list):
+
+    n = len(pokemon)
+    for i in range(n):
+        swapped = False
+        for j in range(0, n-i-1):
+            if pokemon[j] > pokemon[j + 1]:
+                pokemon[j], pokemon[j + 1] = pokemon[j + 1], pokemon[j]
+                swapped = True
+        if (swapped == False):
+            break
+    return pokemon
+
+def is_sorted(pokemon: list):
+    n = len(pokemon)
+    for i in range(0, n-1):
+        if (pokemon[i] > pokemon[i+1]):
+            return False
+    return True
+
+def shuffle(pokemon: list):
+    n = len(pokemon)
+    for i in range(0, n):
+        r = random.randint(0, n-1)
+        pokemon[i], pokemon[r] = pokemon[r], pokemon[i]
+
+def bogo_sort(pokemon: list):
+    n = len(pokemon)
+    while (is_sorted(pokemon) == False):
+        shuffle(pokemon)
+
+    return pokemon
+
+def merge_sort(pokemon: list):
+
+    return pokemon
+
+
 def quick_sort(pokemon: list):
     def _quick_sort(pokemon, left, right):
         if left < right:
