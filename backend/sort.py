@@ -20,7 +20,6 @@ def partition(pokemon: list, left: int, right: int):
     swap(pokemon, i + 1, right)
     return i + 1
 
-
 def insertion_sort(pokemon: list):
 
     for i in range(1, len(pokemon)):
@@ -68,9 +67,30 @@ def bogo_sort(pokemon: list):
     return pokemon
 
 def merge_sort(pokemon: list):
+    if len(pokemon) <= 1:
+        return pokemon
 
-    return pokemon
+    mid = len(pokemon) // 2
+    left_half = merge_sort(pokemon[:mid])
+    right_half = merge_sort(pokemon[mid:])
 
+    sorted_list = []
+    i = j = 0
+
+    # Merge the two halves
+    while i < len(left_half) and j < len(right_half):
+        if left_half[i] < right_half[j]:
+            sorted_list.append(left_half[i])
+            i += 1
+        else:
+            sorted_list.append(right_half[j])
+            j += 1
+
+    # Append any remaining elements
+    sorted_list.extend(left_half[i:])
+    sorted_list.extend(right_half[j:])
+
+    return sorted_list
 
 def quick_sort(pokemon: list):
     def _quick_sort(pokemon, left, right):
