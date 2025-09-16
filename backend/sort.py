@@ -34,7 +34,6 @@ def insertion_sort(pokemon: list):
     return pokemon
 
 def bubble_sort(pokemon: list):
-
     n = len(pokemon)
     for i in range(n):
         swapped = False

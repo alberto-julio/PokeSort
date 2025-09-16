@@ -28,6 +28,12 @@ class ID(BaseModel):
 
 BASE_URL = "https://pokeapi.co/api/v2"
 
+@app.post("/show-step")
+async def show_step():
+
+    return 
+
+
 @app.post("/collect-pokemon")
 async def collect_pokemon():
     dex_lst = [random.randint(1, 100) for _ in range(10)]
